@@ -10,6 +10,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       
     })
   }
+  
   $scope.play = function(song) {
     if($scope.currentSong == song) {
       $scope.audioObject.pause()
