@@ -2,9 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Spotify Template</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Spofity</title>
+	<link rel="page icon" href="img/logo.png">
 	
 	<!-- Include libraries -->
 	<script src="https://code.jquery.com/jquery.min.js"></script>
@@ -20,28 +21,48 @@
 	<body>
 		<!-- Initiate app -->
 		<div ng-app="myApp" ng-controller="myCtrl">
+			<div class="container">
+				<img id="headerImg" src="img/Spofity-logo.png">
+			</div>
+
 			<!-- Form -->
-			<form class="container" name="songForm">
-				<div class="form-group">
-					<label>Spotify search:</label>
-					<input name="search" placeholder="Enter your search.." ng-model="track" class="form-control"></input>
+			<form class="container" name="songForm" novalidate>
+
+				<!-- Song Search -->
+				<div class="form-group" ng-class="{'has-error':songForm.searchSong.$touched && songForm.searchSong.$invalid}">
+					<label>Song search:</label>
+					<input name="searchSong" placeholder="Enter your search..." ng-model="track" ng-minlength="2" class="form-control" required></input>
+					<p ng-show="songForm.search.$error.minlength" class="help-block">Search item is too short</p>
+
 				</div>
 				<div class="form-group">
-					<button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+					<button ng-disabled="songForm.searchSong.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+				</div>
+
+				<!-- Artist Search -->
+				<div class="form-group" ng-class="{'has-error':songForm.searchArt.$touched && songForm.searchArt.$invalid}">
+					<label>Artist search:</label>
+					<input name="searchArt" placeholder="Enter your search..." ng-model="artist" ng-minlength="2" class="form-control" required></input>
+					<p ng-show="songForm.search.$error.minlength" class="help-block">Search item is too short</p>
+				</div>
+				<div class="form-group">
+					<button ng-disabled="songForm.searchArt.$invalid" class="btn btn-primary" ng-click="getArtist()" type="submit">Submit</button>
 				</div>
 			</form>
-			
+
 			<!-- Results -->
 			<div class="container-fixed">
-				<p ng-show="tracks.length>0" class="help-block">Click to sample</p>
+				<div class="help-block">
+					<span ng-show="tracks.length>0">Click to sample</span>
+					<span ng-show="currentSong && !audioObject.paused">(playing)</span>
+				</div>
 				<ul>
 					<li ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}">{{track.name + ', by ' + track.artists[0].name}}</li>
-				</ul>
+					<li ng-repeat="artist in artists" class="" title="{{artist.name}}">{{artist.name}} <!-- <img src="{{imageUrl}}"> --></li> 
+					<!-- can add ng-show="show(artist.images[0])" above, but won't show artist.name if I do because the method is commented out in the js file -->
+				</ul>		
 			</div>
 		</div>
-		
-	<iframe id="ytplayer" type="text/html" width="640" height="390"
-	  src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=0&origin=http://example.com"
-	  frameborder="0"/>
-  </body>
+ 
+</body>
 </html>

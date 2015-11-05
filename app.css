@@ -1,3 +1,15 @@
 body {
   padding:10px;
+  background-color: #C9C9C9;
+  color: black;
 }
+
+#headerImg {
+	width: 400;
+	margin-bottom: 1em;
+}
+
+.ng-class {
+	width: 20em;
+}
+
