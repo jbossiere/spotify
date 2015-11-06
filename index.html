@@ -34,7 +34,7 @@
 					<form class="container col-xs-12 col-md-12" name="songForm" novalidate>
 
 						<!-- All Search -->
-						<div class="form-group" ng-class="{'has-error':songForm.searchSong.$touched && songForm.searchSong.$invalid}">
+						<div class="form-group" ng-class="{'has-error':songForm.searchSong.$error.minlength && songForm.searchSong.$invalid}">
 							<input name="searchSong" placeholder="Search Spofity..." ng-model="track" ng-minlength="2" class="form-control" required></input>
 							<p ng-show="songForm.searchSong.$error.minlength" class="help-block">Search item is too short</p>
 						</div>
