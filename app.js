@@ -1,3 +1,6 @@
+$(document).ready(function(){
+  $('#filterBar').hide();
+});
 var data;
 var songUrl = 'https://api.spotify.com/v1/search?type=track&query='
 var artistUrl = 'https://api.spotify.com/v1/search?type=artist&query='
@@ -11,6 +14,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     console.log($scope.track)
     if($scope.track != undefined) {
       console.log('check1')
+      $('#filterBar').show();
       $http.get(songUrl + $scope.track).success(function(response){ 
         data = $scope.tracks = response.tracks.items; //$scope.tracks is created in order to user "tracks" later on in the <li> in the html.  It is given the universal variable "data" to use in different parts of the js and "response.tracks.item" is the path in the object that gets you to each individual track -eg. the first item in the object is called tracks so, response.tracks, then in order to access each individual track that is under the "items" category so response.tracks.item gets you all of the individual items and saves them all in "data" or "$scope.tracks" 
       // console.log($scope.tracks); //prints out array of 20 objects - adding square brackets with a number like 0, will get the first object in the array
@@ -46,9 +50,19 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     }
   };
 
+  // $('#resultList').click(function(){
+  //     $('#streamDiv').hide();
+  //   $('#streamDiv').animate({
+  //     height: "toggle"
+  //   } function() {
+  //     height: "100px"
+  //   });
+  // });
+
 });
 
 // Add tool tips to anything with a title property
 $('body').tooltip({
     selector: '[title]'
 });
+

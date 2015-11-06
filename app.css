@@ -25,7 +25,22 @@ header img {
 	margin-top: 180px;	
 }
 
-input {
-	width: 50%;
+ul {
+	padding-left: 0;
 }
 
+#resultColumn {
+	text-align: center;
+}
+
+#result li {
+	display: inline;
+}
+
+#result img {
+	padding: 30px;
+}
+
+#streamDiv {
+	background-color: white;
+}
