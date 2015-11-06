@@ -17,11 +17,6 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       // console.log(data)
       // console.log(response.tracks); //prints out one object that has items category, which is an array of 20 items - same as above
       //$scope.track = ''; erases user input after submit
-        console.log($scope.artist)
-        if($scope.artist != undefined) { 
-          console.log('check2')
-          $scope.artistFilter = response.tracks.items.artists;
-        }
       });
     }
   };
