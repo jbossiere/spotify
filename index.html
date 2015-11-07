@@ -55,14 +55,14 @@
 					<form class="container col-xs-12 col-md-6" name="songForm" novalidate>
 
 						<!-- Song Filter Search -->
-						<div class="form-group" ng-class="{'has-error':songForm.searchSong.$minlength && songForm.searchSong.$invalid}">
-							<input name="searchSong" placeholder="Filter by song..." ng-model="track" ng-minlength="2" class="form-control" required></input>
-							<p ng-show="songForm.search.$error.minlength" class="help-block">Search item is too short</p>
+						<div class="form-group">
+							<label>Filter by song:</label>
+							<input name="searchSong" placeholder="Hit enter to search..." ng-model="track" class="form-control" required></input>
 						</div>
 
 						<!-- song filter submit button -->
 						<div class="form-group">
-							<button ng-disabled="songForm.searchSong.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+							<button class="btn btn-primary invisible" ng-click="getSongs()" type="submit">Submit</button>
 						</div>
 
 					</form>
@@ -71,14 +71,14 @@
 					<form class="container col-xs-12 col-md-6" name="albumForm" novalidate>
 
 						<!-- Album Filter Search -->
-						<div class="form-group" ng-class="{'has-error':albumForm.searchAlb.$minlength && albumForm.searchAlb.$invalid}">
-							<input name="searchAlb" placeholder="Filter by album..." ng-model="album" ng-minlength="2" class="form-control" required></input>
-							<p ng-show="albumForm.search.$error.minlength" class="help-block">Search item is too short</p>
+						<div class="form-group">
+							<label>Filter by album:</label>
+							<input name="searchAlb" placeholder="Hit enter to search..." ng-model="album" class="form-control" required></input>
 						</div>
 
 						<!-- album filter submit button -->
 						<div class="form-group">
-							<button ng-disabled="albumForm.searchAlb.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+							<button class="btn btn-primary invisible" ng-click="getSongs()" type="submit">Submit</button>
 						</div>
 
 					</form>

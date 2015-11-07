@@ -1,22 +1,31 @@
 $(document).ready(function(){
   $('#filterBar').hide();
 });
+
 var data;
 var songUrl = 'https://api.spotify.com/v1/search?type=track&query=artist:'
-var artistUrl = 'https://api.spotify.com/v1/search?type=artist&query='
-var myApp = angular.module('myApp', [])
+var myApp = angular.module('myApp', []);
+var scopeArtist;
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   $scope.audioObject = {}
 
-  // get songs
+  // get songs by artist search
   $scope.getSongs = function() {
-    console.log($scope.artist)
-    console.log('check1')
-    $('#filterBar').show();
-    $http.get(songUrl + $scope.artist).success(function(response){ 
-      data = $scope.tracks = response.tracks.items;  
-    });
+    console.log("the scopeArtist is " + scopeArtist);
+    console.log("the artist is " + $scope.artist);
+    console.log("the track is " + $scope.track);
+    console.log("the album is " + $scope.album);
+    if ($scope.artist != scopeArtist && $scope.track == undefined && $scope.album == undefined) {
+      scopeArtist = $scope.artist;
+      console.log("new scopeArtist is " + scopeArtist);
+      $('#filterBar').show();
+      console.log(songUrl);
+      $http.get(songUrl + $scope.artist).success(function(response){ 
+        console.log(songUrl + $scope.artist);
+        data = $scope.tracks = response.tracks.items;  
+      });
+    }
 
     // if user searchs a track or an album or both
     if ($scope.track != undefined &&$scope.album == undefined) {
@@ -32,6 +41,11 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     } else if ($scope.track != undefined && $scope.album != undefined) {
       console.log(songUrl + $scope.artist + "%20track:" + $scope.track + "%20album:" + $scope.album);
       $http.get(songUrl + $scope.artist + "%20track:" + $scope.track + "%20album:" + $scope.album).success(function(response){ 
+        data = $scope.tracks = response.tracks.items;  
+      });
+    } else if ($scope.artist == scopeArtist && $scope.track == undefined && $scope.album == undefined) { //potentially get rid of this or modify to make the search work
+      $http.get('https://api.spotify.com/v1/search?type=track&query=artist:').success(function(response){ 
+        console.log('https://api.spotify.com/v1/search?type=track&query=artist:');
         data = $scope.tracks = response.tracks.items;  
       });
     }
