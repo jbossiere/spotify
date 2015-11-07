@@ -5,9 +5,10 @@ $(document).ready(function(){
 var data;
 var baseUrl = 'https://api.spotify.com/v1/search?type=track&query=artist:'
 var myApp = angular.module('myApp', []);
-var scopeArtist;
+var scopeArtist; // used this for debugging - delete at the end
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
+  // $('#animateDiv').hide();
   $scope.audioObject = {}
 
   // get songs by artist search
@@ -16,6 +17,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     console.log("the artist is " + $scope.artist);
     console.log("the track is " + $scope.track);
     console.log("the album is " + $scope.album);
+
     if ($scope.artist != scopeArtist && $scope.track == undefined && $scope.album == undefined) {
       scopeArtist = $scope.artist;
       console.log("new scopeArtist is " + scopeArtist);
@@ -64,7 +66,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   };
 
   // play the preview_url
-  $scope.play = function(song) {
+  $scope.play = function(song, track) {
     if($scope.currentSong == song) {
       $scope.audioObject.pause();
       $scope.currentSong = false;
@@ -75,16 +77,17 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       $scope.audioObject.play();  
       $scope.currentSong = song;
     }
+
+    // gets track name in order to show current playing track
+    $scope.trackName = track.name;
+    // popup(track);
   };
 
-  // $('#resultList').click(function(){
-  //     $('#streamDiv').hide();
-  //   $('#streamDiv').animate({
-  //     height: "toggle"
-  //   } function() {
-  //     height: "100px"
-  //   });
-  // });
+  // var popup = function (track) {
+  //   console.log('kk');
+  //   $('#popup').html("<img src='track.album.images[1].url' alt='track.name' title='track.name'>");
+  // };
+
 
 });
 

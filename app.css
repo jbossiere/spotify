@@ -14,7 +14,7 @@ body {
 }
 
 header {
-	min-height: 550px;
+	min-height: 500px;
 	background-position: center;	
 	background-image: url("img/record-player.jpg");
 	margin-bottom: 50px;
@@ -33,15 +33,48 @@ div.help-block {
 	text-align: center;
 }
 
-#result li {
-	/*display: inline;*/
+li {
+	text-align: center;
+	display: inline;
 }
 
-#resultList img {
-	min-height: 390px;
-	padding: 30px;
+.resultDiv img {
+	min-height: 240px;
+	max-width: 240px;
+
+	/*padding: 30px;*/
+	/*margin-right: auto;
+	margin-left: auto;
+	display: block;
+	margin: 0;
+*/
 }
 
-#streamDiv {
+.resultDiv p {
+	min-height: 40px;
+}
+
+.animateDiv {
+	min-height: 40px;
 	background-color: white;
 }
+
+#popup {
+	/*margin-right: auto;
+	margin-left: auto;*/
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background-color: blue;
+	width: 80%;
+	height: 300px;
+	text-align: center;
+	/*margin-left: 3.9%;*/
+/*	margin-right: auto;
+	margin-left: auto;
+	display: block;*/
+}
+
+

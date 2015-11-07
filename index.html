@@ -51,8 +51,9 @@
 			<!-- Song Filter -->
 			<div id="filterBar" class="container-fluid">
 				<div class="row">
+
 					<!-- Song Form -->
-					<form class="container col-xs-12 col-md-6" name="songForm" novalidate>
+					<form class="container col-xs-12 col-sm-6" name="songForm" novalidate>
 
 						<!-- Song Filter Search -->
 						<div class="form-group">
@@ -64,12 +65,11 @@
 						<div class="form-group">
 							<button class="btn btn-primary invisible" ng-click="getSongs()" type="submit">Submit</button>
 						</div>
-
 					</form>
+					<!-- /Song Form -->
 
 					<!-- Album Filter -->
-					<form class="container col-xs-12 col-md-6" name="albumForm" novalidate>
-
+					<form class="container col-xs-12 col-sm-6" name="albumForm" novalidate>
 						<!-- Album Filter Search -->
 						<div class="form-group">
 							<label>Filter by album:</label>
@@ -80,29 +80,45 @@
 						<div class="form-group">
 							<button class="btn btn-primary invisible" ng-click="getSongs()" type="submit">Submit</button>
 						</div>
-
 					</form>
+					<!-- /Album Filter -->
 
 				</div>
 			</div>
+			<!-- /Song Filter -->
 
 			<!-- Results -->
 			<div class="container-fixed">
+				<!-- <div id="popup">
+				</div> -->
 				<div class="row">
-					<!-- song column -->
+
 					<div class="help-block">
 						<span ng-show="tracks.length>0">Click to sample</span>
-						<span ng-show="currentSong && !audioObject.paused">(playing)</span>
+						<span ng-show="currentSong && !audioObject.paused">(Currently playing: {{trackName}})</span>
 					</div>
-					
-					<div id="resultList" ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)">
-						<img class="col-xs-12 col-md-4" src="{{track.album.images[1].url}}" alt="{{track.name}}"> 
-						<!-- <p>{{track.name + ' from ' + track.album.name + ', by ' + track.artists[0].name}}</p> -->
-					</div> 
-				</div>
-			</div> 
-		</div> <!-- /myApp -->
+					<ul>
+						<li ng-repeat="track in tracks" class="resultDiv col-xs-12 col-sm-4 col-md-3" ng-click="play(track.preview_url, track)">
+							<img src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}">
+							<p>{{track.name}}</p>
+						</li>
+					</ul>			
+
+<!-- 					<div ng-repeat="track in tracks" class="resultDiv col-xs-12 col-md-4" ng-click="play(track.preview_url, track)">
+						<img src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}"> 
+						<div class="animateDiv">
+							<p>{{"Artist: " + track.artists[0].name}}</p>
+							<p>{{"Track: " + track.name}}</p>
+							<p>{{"Album: " + track.album.name}}</p>
+						</div> -->
+				</div> 
+			</div>
+				<!-- /Results -->
+
+		</div> 
+		<!-- /Initiate App -->
+		<!-- </div>  -->
+
 	</body>
 </html>
 
-<!-- {{track.name + ' from ' + track.album.name + ', by ' + track.artists[0].name}} gets track info (used to be in li after the image) -->
