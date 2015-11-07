@@ -29,7 +29,7 @@ ul {
 	padding-left: 0;
 }
 
-#resultColumn {
+div.help-block {
 	text-align: center;
 }
 
@@ -37,7 +37,8 @@ ul {
 	/*display: inline;*/
 }
 
-#result img {
+#resultList img {
+	min-height: 390px;
 	padding: 30px;
 }
 

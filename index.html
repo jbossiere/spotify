@@ -90,16 +90,16 @@
 			<div class="container-fixed">
 				<div class="row">
 					<!-- song column -->
-					<div id="resultColumn" class="col-xs-12 col-md-12">
-						<div class="help-block">
-							<span ng-show="tracks.length>0">Click to sample</span>
-							<span ng-show="currentSong && !audioObject.paused">(playing)</span>
-						</div>
-						<ul id="result">
-							<li id="resultList" ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}"><img src="{{track.album.images[1].url}}"> {{track.name + ' from ' + track.album.name + ', by ' + track.artists[0].name}}</li>
-						</ul>
-					</div>	<!-- /col-xs-12 col-md-6 -->
-				</div> 
+					<div class="help-block">
+						<span ng-show="tracks.length>0">Click to sample</span>
+						<span ng-show="currentSong && !audioObject.paused">(playing)</span>
+					</div>
+					
+					<div id="resultList" ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)">
+						<img class="col-xs-12 col-md-4" src="{{track.album.images[1].url}}" alt="{{track.name}}"> 
+						<!-- <p>{{track.name + ' from ' + track.album.name + ', by ' + track.artists[0].name}}</p> -->
+					</div> 
+				</div>
 			</div> 
 		</div> <!-- /myApp -->
 	</body>
