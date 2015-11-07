@@ -25,46 +25,64 @@
 				<img id="headerImg" src="img/Spofity-logo.png">
 			</div>
 		</header>
+
 		<!-- Initiate app -->
 		<div class="container" ng-app="myApp" ng-controller="myCtrl">
 
 			<div class="container-fluid">
 				<div class="row">
-					<!-- Song Form -->
-					<form class="container col-xs-12 col-md-12" name="songForm" novalidate>
+					<!-- Artist Form -->
+					<form class="container col-xs-12 col-md-12" name="artistForm" novalidate>
 
-						<!-- All Search -->
-						<div class="form-group" ng-class="{'has-error':songForm.searchSong.$error.minlength && songForm.searchSong.$invalid}">
-							<input name="searchSong" placeholder="Search Spofity..." ng-model="track" ng-minlength="2" class="form-control" required></input>
-							<p ng-show="songForm.searchSong.$error.minlength" class="help-block">Search item is too short</p>
+						<!-- Artist Search -->
+						<div class="form-group" ng-class="{'has-error':artistForm.searchArt.$error.minlength && artistForm.searchArt.$invalid}">
+							<input name="searchArt" placeholder="Search an Artist..." ng-model="artist" ng-minlength="2" class="form-control" required></input>
+							<p ng-show="artistForm.searchArt.$error.minlength" class="help-block">Search item is too short</p>
 						</div>
 
-						<!-- all submit button -->
+						<!-- Artist submit button -->
 						<div class="form-group">
-							<button ng-disabled="songForm.searchSong.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+							<button ng-disabled="artistForm.searchArt.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
 						</div>
 					</form>
 				</div> <!-- /row -->
 			</div> <!-- /container -->
 
-			<!-- Filter search -->
+			<!-- Song Filter -->
 			<div id="filterBar" class="container-fluid">
 				<div class="row">
-					<!-- Artist Form -->
-					<form class="container col-xs-12 col-md-12" name="artistForm" novalidate>
+					<!-- Song Form -->
+					<form class="container col-xs-12 col-md-6" name="songForm" novalidate>
 
-						<!-- Filter Search -->
-						<div class="form-group" ng-class="{'has-error':artistForm.searchArt.$touched && artistForm.searchArt.$invalid}">
-							<input name="searchArt" placeholder="Start typing to filter search..." ng-model="artist" ng-minlength="2" class="form-control" required></input>
-							<p ng-show="artistForm.search.$error.minlength" class="help-block">Search item is too short</p>
+						<!-- Song Filter Search -->
+						<div class="form-group" ng-class="{'has-error':songForm.searchSong.$minlength && songForm.searchSong.$invalid}">
+							<input name="searchSong" placeholder="Filter by song..." ng-model="track" ng-minlength="2" class="form-control" required></input>
+							<p ng-show="songForm.search.$error.minlength" class="help-block">Search item is too short</p>
 						</div>
 
-						<!-- filter submit button -->
+						<!-- song filter submit button -->
 						<div class="form-group">
-							<button ng-disabled="artistForm.searchArt.$invalid" class="btn btn-primary" ng-click="get()" type="submit">Submit</button>
+							<button ng-disabled="songForm.searchSong.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
 						</div>
 
 					</form>
+
+					<!-- Album Filter -->
+					<form class="container col-xs-12 col-md-6" name="albumForm" novalidate>
+
+						<!-- Album Filter Search -->
+						<div class="form-group" ng-class="{'has-error':albumForm.searchAlb.$minlength && albumForm.searchAlb.$invalid}">
+							<input name="searchAlb" placeholder="Filter by album..." ng-model="album" ng-minlength="2" class="form-control" required></input>
+							<p ng-show="albumForm.search.$error.minlength" class="help-block">Search item is too short</p>
+						</div>
+
+						<!-- album filter submit button -->
+						<div class="form-group">
+							<button ng-disabled="albumForm.searchAlb.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+						</div>
+
+					</form>
+
 				</div>
 			</div>
 
@@ -78,8 +96,8 @@
 							<span ng-show="currentSong && !audioObject.paused">(playing)</span>
 						</div>
 						<ul id="result">
-							<li id="resultList" ng-repeat="track in tracks | filter:artist" class="" ng-click="play(track.preview_url)" title="{{track.name}}"><img src="{{track.album.images[1].url}}"></li>
-						</ul>	
+							<li id="resultList" ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}"><img src="{{track.album.images[1].url}}"> {{track.name + ' from ' + track.album.name + ', by ' + track.artists[0].name}}</li>
+						</ul>
 					</div>	<!-- /col-xs-12 col-md-6 -->
 				</div> 
 			</div> 
