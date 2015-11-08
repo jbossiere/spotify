@@ -35,7 +35,7 @@
 					<form class="container col-xs-12 col-md-12" name="artistForm" novalidate>
 
 						<!-- Artist Search -->
-						<div class="form-group" ng-class="{'has-error':artistForm.searchArt.$error.minlength && artistForm.searchArt.$invalid}">
+						<div class="form-group" ng-class="{'has-error':artistForm.searchArt.$error.touched && artistForm.searchArt.$invalid}">
 							<input name="searchArt" placeholder="Search an Artist..." ng-model="artist" ng-minlength="2" class="form-control" autocomplete="off" required></input>
 							<p ng-show="artistForm.searchArt.$error.minlength" class="help-block">Search item is too short</p>
 						</div>
@@ -50,6 +50,9 @@
 
 			<!-- Song Filter -->
 			<div id="filterBar" class="container-fluid">
+				<!-- button that allows user to pause music whenever - only appears when hidden filter bars appear -->
+				<button class="btn btn-warning" type="submit" ng-click="pause()">Pause Music</button>
+
 				<div class="row">
 
 					<!-- Song Form -->
@@ -88,8 +91,9 @@
 			<!-- /Song Filter -->
 			
 			<!-- Create the popup window -->
-			<div id="popup">
-			</div>
+			<div class="overlay"></div>
+				<div id="popup">
+				</div>
 
 			<!-- Results -->
 			<div class="container-fixed">
@@ -100,7 +104,7 @@
 					</div>
 					<div id="selectImages">
 						<div ng-repeat="track in tracks" class="resultDiv" ng-click="play(track.preview_url, track)">
-							<img class-"image" src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}">
+							<img class="image" src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}" data-toggle="tooltip">
 							<!-- <p></p>>{{track.name}}</p> -->
 						</div>
 					</div>			

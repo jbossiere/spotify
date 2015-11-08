@@ -1,7 +1,6 @@
 body {
-  background-color: #C9C9C9;
+  background-color: #C9C9C9; 
   color: black;
-
 }
 
 #headerImg {
@@ -45,7 +44,7 @@ div.help-block {
 	padding: 1%;
 }
 
-
+/*positions backdrop, and gives it a box-shadow*/
 #popup {
 	box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.5); /*h-shadow, v-shadow, blur, color*/
 	position: fixed;
@@ -54,11 +53,24 @@ div.help-block {
 	right: 0;
 	top: 15%;
 	z-index: 100;
-	background-color: white;
+	background-color: #282828;
+	color: #AEAEAE;
 	width: 80%;
-	height: 500px;
+	/*height: 500px;*/
 	text-align: center;
+}
 
+/*darkens opaque backdrop for the popup to focus user's attention, set z-index to one below
+the popup in order to make it a background*/
+.overlay { 
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: #282828;
+    opacity:0.8;
+    z-index:99;
 }
 
 .playingSpan {
@@ -71,4 +83,12 @@ div.help-block {
 	margin-right: 0 auto;
 	margin-left: 0 auto;
 	text-align: center;
+}
+
+/*positions the pause music button in bottom right of screen*/
+.btn-warning {
+	position: fixed;
+	z-index: 100;
+	right:5%;
+	bottom: 3%;
 }
