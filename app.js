@@ -1,11 +1,13 @@
 $(document).ready(function(){
   $('#filterBar').hide();
+  $('#popup').hide();
 });
 
 var data;
 var baseUrl = 'https://api.spotify.com/v1/search?type=track&query=artist:'
 var myApp = angular.module('myApp', []);
 var scopeArtist; // used this for debugging - delete at the end
+var trackName;
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   // $('#animateDiv').hide();
@@ -79,15 +81,20 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     }
 
     // gets track name in order to show current playing track
-    $scope.trackName = track.name;
-    // popup(track);
+    trackName = track.name;
+    $scope.trackName = trackName;
+    popup(track);
   };
 
-  // var popup = function (track) {
-  //   console.log('kk');
-  //   $('#popup').html("<img src='track.album.images[1].url' alt='track.name' title='track.name'>");
-  // };
-
+  var popup = function (track) {
+    console.log('kk');
+    console.log(trackName)
+    var trackImage = track.album.images[1].url;
+    console.log(trackImage);
+    $('#popup').show();
+    $('#popup').html("<img src=https://i.scdn.co/image/9f31af5ca97f84f23a46ad152a89481668e6008f alt='trackName' title='trackName'>"); //Why isn't this thing working? if I put any other image url, it shows!
+  }; 
+//  Problem displaying image could be caused by response format (https://developer.spotify.com/technologies/metadata-api/) Figure out how to use?
 
 });
 
