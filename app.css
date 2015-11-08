@@ -25,15 +25,6 @@ header img {
 	margin-top: 180px;	
 }
 
-ul {
-	padding-left: 0;
-}
-
-li {
-	text-align: center;
-	display: inline;
-}
-
 div.help-block {
 	text-align: center;
 }
@@ -41,17 +32,17 @@ div.help-block {
 .resultDiv img {
 	min-height: 240px;
 	max-width: 240px;
-
-	/*padding: 30px;*/
-	/*margin-right: auto;
-	margin-left: auto;
-	display: block;
-	margin: 0;
-*/
 }
 
 .resultDiv p {
 	min-height: 40px;
+}
+
+.resultDiv {
+	display: inline-block;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 1%;
 }
 
 .animateDiv {
@@ -61,22 +52,28 @@ div.help-block {
 
 #popup {
 	box-shadow: 4px 4px 5px 3px; /*h-shadow, v-shadow, blur, spread */
-	/*margin-right: auto;
-	margin-left: auto;*/
 	position: fixed;
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	bottom: 200px;
+	top: 15%;
 	z-index: 100;
 	background-color: gray;
 	width: 80%;
 	height: 500px;
 	text-align: center;
-	/*margin-left: 3.9%;*/
-/*	margin-right: auto;
-	margin-left: auto;
-	display: block;*/
+
 }
 
+.playingSpan {
+	color: black;
+}
+
+#selectImages {
+	padding: 1%;
+	display: block;
+	margin-right: 0 auto;
+	margin-left: 0 auto;
+	text-align: center;
+}
 
