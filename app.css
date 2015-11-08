@@ -45,20 +45,16 @@ div.help-block {
 	padding: 1%;
 }
 
-.animateDiv {
-	min-height: 40px;
-	background-color: white;
-}
 
 #popup {
-	box-shadow: 4px 4px 5px 3px; /*h-shadow, v-shadow, blur, spread */
+	box-shadow: 5px 10px 5px #888888; /*h-shadow, v-shadow, blur, color*/
 	position: fixed;
 	margin: 0 auto;
 	left: 0;
 	right: 0;
 	top: 15%;
 	z-index: 100;
-	background-color: gray;
+	background-color: white;
 	width: 80%;
 	height: 500px;
 	text-align: center;
