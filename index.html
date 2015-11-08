@@ -87,38 +87,28 @@
 			</div>
 			<!-- /Song Filter -->
 			
+			<!-- Create the popup window -->
 			<div id="popup">
 			</div>
 
 			<!-- Results -->
 			<div class="container-fixed">
 				<div class="row">
-
 					<div class="help-block">
-						<span class="playingSpan" ng-show="tracks.length>0">Click to sample</span>
+						<span class="playingSpan" ng-show="tracks.length>0">Click to sample:</span>
 						<span class="playingSpan" ng-show="currentSong && !audioObject.paused">(Currently playing: {{trackName}})</span>
 					</div>
 					<div id="selectImages">
 						<div ng-repeat="track in tracks" class="resultDiv" ng-click="play(track.preview_url, track)">
-							<img src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}">
-							<!-- <p>{{track.name}}</p> -->
+							<img class-"image" src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}">
+							<!-- <p></p>>{{track.name}}</p> -->
 						</div>
 					</div>			
-
-<!-- 					<div ng-repeat="track in tracks" class="resultDiv col-xs-12 col-md-4" ng-click="play(track.preview_url, track)">
-						<img src="{{track.album.images[1].url}}" alt="{{track.name}}" title="{{track.name}}"> 
-						<div class="animateDiv">
-							<p>{{"Artist: " + track.artists[0].name}}</p>
-							<p>{{"Track: " + track.name}}</p>
-							<p>{{"Album: " + track.album.name}}</p>
-						</div> -->
 				</div> 
 			</div>
 				<!-- /Results -->
-
 		</div> 
 		<!-- /Initiate App -->
-		<!-- </div>  -->
 
 	</body>
 </html>

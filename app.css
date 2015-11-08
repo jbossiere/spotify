@@ -47,7 +47,7 @@ div.help-block {
 
 
 #popup {
-	box-shadow: 5px 10px 5px #888888; /*h-shadow, v-shadow, blur, color*/
+	box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.5); /*h-shadow, v-shadow, blur, color*/
 	position: fixed;
 	margin: 0 auto;
 	left: 0;
@@ -72,4 +72,3 @@ div.help-block {
 	margin-left: 0 auto;
 	text-align: center;
 }
-

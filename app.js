@@ -6,12 +6,16 @@ $(document).ready(function(){
     $('#popup').hide();
   });
 
+  // $('[data-toggle="tooltip"]').tooltip(); 
+
+  $('img').tooltip({title: "Hooray!"});
+
 });
 
 var data;
 var baseUrl = 'https://api.spotify.com/v1/search?type=track&query=artist:'
 var myApp = angular.module('myApp', []);
-var scopeArtist; // used this for debugging - delete at the end
+var scopeArtist;
 var trackName;
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
@@ -76,8 +80,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       $scope.audioObject.play();   //play that song
       $scope.currentSong = song; //change the song from false to the current url
       $('#popup').show();
-      trackName = track.name;
-      $scope.trackName = trackName;
+      $scope.trackName = track.name;
       $('#popup').html("<img src='" + track.album.images[1].url + "' alt='" + track.name + "' title='" + track.name + "'>");
     }
   }
@@ -86,7 +89,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
 
 
 // Add tool tips to anything with a title property
-$('body').tooltip({
-    selector: '[title]'
-});
+// $('body').tooltip({
+//     selector: '[title]'
+// });
 
