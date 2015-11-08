@@ -95,6 +95,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     $('#popup').html("<img src=https://i.scdn.co/image/9f31af5ca97f84f23a46ad152a89481668e6008f alt='trackName' title='trackName'>"); //Why isn't this thing working? if I put any other image url, it shows!
   }; 
 //  Problem displaying image could be caused by response format (https://developer.spotify.com/technologies/metadata-api/) Figure out how to use?
+// Try putting a different HTML element to send to the popup and see if it shows up on the page.
 
 });
 
