@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#popup, .overlay').hide(); //start with popup hidden
 
   // hide popup if the popup is clicked
-  $('#popup, .overlay').click(function() {
+  $('.overlay').click(function() {
     $('#popup, .overlay').hide();
   });
 
