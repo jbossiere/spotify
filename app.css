@@ -3,15 +3,18 @@ body {
   color: black;
 }
 
+/**/
 #headerImg {
 	width: 400;
 	margin-bottom: 1em;
 }
 
+
 .ng-class {
 	width: 20em;
 }
 
+/*inserts background image and positions it*/
 header {
 	min-height: 500px;
 	background-position: center;	
@@ -20,23 +23,24 @@ header {
 	background-repeat: no-repeat;
 }
 
+/*positions the logo*/
 header img {
 	margin-top: 180px;	
 }
 
+/*changes the color and positions of the span text stating that the user can click a song to preview*/
 div.help-block {
 	text-align: center;
+	color: black;
 }
 
+/*Controls size of result images*/
 .resultDiv img {
 	min-height: 240px;
 	max-width: 240px;
 }
 
-.resultDiv p {
-	min-height: 40px;
-}
-
+/*positions the divs containing result images*/
 .resultDiv {
 	display: inline-block;
 	margin-right: auto;
@@ -51,9 +55,9 @@ div.help-block {
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	top: 15%;
+	top: 10%;
 	z-index: 100;
-	background-color: #282828;
+	background-color: #434343;
 	color: #AEAEAE;
 	width: 80%;
 	height: 80%;
@@ -69,15 +73,12 @@ the popup in order to make it a background*/
     bottom:0;
     left:0;
     right:0;
-    background-color: #282828;
+    background-color: #0D0D0D;
     opacity:0.8;
     z-index:99;
 }
 
-.playingSpan {
-	color: black;
-}
-
+/*positions the selecteImages div where each result div/image shows up*/
 #selectImages {
 	padding: 1%;
 	display: block;
@@ -94,14 +95,22 @@ the popup in order to make it a background*/
 	bottom: 3%;
 }
 
-img.image {
+/*positions the album art image in the popup*/
+img.popupAlbum {
 	padding-top: 20px;
+	width: 450px;
+	height: 450px;
 }
 
+/*positions the line in the popup*/
 #popup hr {
-	width: 50%
+	width: 50%;
+	margin-bottom: 8px;
 }
 
-img.instaPic {
-	display: inline-block;
+/*positions the instagram icon in the popup*/
+#instaIcon {
+	width: 25px;
+	height: 25px;
+	margin-bottom: 15px;
 }
