@@ -56,7 +56,7 @@ div.help-block {
 	background-color: #282828;
 	color: #AEAEAE;
 	width: 80%;
-	/*height: 500px;*/
+	height: 80%;
 	text-align: center;
 }
 
@@ -88,7 +88,7 @@ the popup in order to make it a background*/
 /*positions the pause music button in bottom right of screen*/
 .btn-warning {
 	position: fixed;
-	z-index: 100;
+	z-index: 101;
 	right:5%;
 	bottom: 3%;
 }

@@ -75,6 +75,19 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       $('#popup').append('<h4>"' + track.name + '" by ' + track.artists[0].name + "</h4>")
       $('#popup').append("<h4>" + "from the album <i>" + track.album.name + "</i></h4>")
 
+      // use the instagram API to get relevant photos, then add the photos to the instagram div in the popup
+      $.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        cache: false,
+        url: "https://api.instagram.com/v1/media/popular?access_token=211968027.7222298.1bbdffa25f78459ba915b03b6780eefb",
+        success: function(data){
+          console.log(data)
+          for (var i=0; i<6; i++) {
+            $('#popup').append("<div><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a></div>");
+          }
+        }
+      });
     }
   }
 
@@ -87,8 +100,8 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   }
 });
 
-
-
+// https://instagram.com/oauth/authorize/?client_id=81f9925bc91b4fab8d2a053a9237d7f3&redirect_uri=http://localhost:8000/&response_type=token
+// accesstoken 11438424.81f9925.4562fc090a894cc695e36976c7c31efa
 // Add tool tips to anything with a title property
 // $('body').tooltip({
 //     selector: '[title]'
