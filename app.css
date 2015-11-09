@@ -129,8 +129,8 @@ li.instaResultList {
 /*When the screen is smaller than 768px (for smartphones), change the image sizes of the popups*/
 @media screen and (max-width: 768px) {
 	img.popupAlbum {
-		padding-left: 20px;
-		padding-right: 20px;
+		margin-left: auto;
+		margin-right: auto;
 		width: 290px;
 		height: 290px;
 	}
@@ -140,7 +140,7 @@ li.instaResultList {
 	}
 
 	h4 {
-		margin-left: 10px;
-		margin-right: 10px; 
+		margin-left: auto;
+		margin-right: auto; 
 	}
 }
