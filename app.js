@@ -76,7 +76,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     $('#popup').append('<h4>"' + track.name + '" by ' + track.artists[0].name + "</h4>")
     $('#popup').append("<h4>" + "from the album <i>" + track.album.name + "</i></h4>")
     $('#popup').append("<hr>")
-    $('#popup').append("<img id='instaIcon' src='img/Instagram.png'><span> Displaying recent Instagram pics tagged with #" + track.artists[0].name.replace(/\s+/g, "") + ":</span><br>")
+    $('#popup').append("<img id='instaIcon' src='img/Instagram.png'><span> Displaying recent Instagram photos tagged with #" + track.artists[0].name.replace(/\s+/g, "") + ":</span><br>")
 
     // use the instagram API to get relevant tagged photos, then add the 10 most recent photos to the instagram div in the popup
     $.ajax({
