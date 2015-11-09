@@ -58,6 +58,7 @@ div.help-block {
 	width: 80%;
 	height: 80%;
 	text-align: center;
+	overflow-x: auto;
 }
 
 /*darkens opaque backdrop for the popup to focus user's attention, set z-index to one below
@@ -89,6 +90,18 @@ the popup in order to make it a background*/
 .btn-warning {
 	position: fixed;
 	z-index: 101;
-	right:5%;
+	right: 2%;
 	bottom: 3%;
+}
+
+img.image {
+	padding-top: 20px;
+}
+
+#popup hr {
+	width: 50%
+}
+
+img.instaPic {
+	display: inline-block;
 }
