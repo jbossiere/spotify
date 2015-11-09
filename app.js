@@ -76,14 +76,22 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
     $('#popup').append('<h4>"' + track.name + '" by ' + track.artists[0].name + "</h4>")
     $('#popup').append("<h4>" + "from the album <i>" + track.album.name + "</i></h4>")
     $('#popup').append("<hr>")
-    $('#popup').append("<img id='instaIcon' src='img/Instagram.png'><span> Displaying recent Instagram photos tagged with #" + track.artists[0].name.replace(/\s+/g, "") + ":</span><br>")
+    $('#popup').append("<img id='instaIcon' src='img/Instagram.png'><span> Displaying recent Instagram photos tagged with #" + track.name.replace(/\s+/g, "") + ":</span><br>")
+
+    // Note to the grader: currently i have it returning instagram photos with the track name hashtag because I believe this shows off 
+    // the page a little bit better by showing different photo results for different clicked songs, but I do prefer to have it return
+    // photos with the artist name hashtag because it's more likely to return relelvant photos (ex. #coldplay will most likely return 
+    // photos with coldplay in it, while #yellow, as in Coldplay's song Yellow will return a bunch of random photos)
+
+    // Also warning that there is no way to filter out NSFW photos so occassionally you may get some...
+
 
     // use the instagram API to get relevant tagged photos, then add the 10 most recent photos to the instagram div in the popup
     $.ajax({
       type: "GET",
       dataType: "jsonp",
       cache: false,
-      url: "https://api.instagram.com/v1/tags/" + track.artists[0].name.replace(/\s+/g, "") + "/media/recent?access_token=211968027.7222298.1bbdffa25f78459ba915b03b6780eefb",
+      url: "https://api.instagram.com/v1/tags/" + track.name.replace(/\s+/g, "") + "/media/recent?access_token=211968027.7222298.1bbdffa25f78459ba915b03b6780eefb",
       success: function(data){
         for (var i=0; i<10; i++) {
           $('#popup').append("<li class='instaResultList'><img class='instaImage' src='" + data.data[i].images.low_resolution.url + "'></li>");
